@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repository Index</title>
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --text:#1d1d1b; --muted:#5f5f5a; --line:#e3e2dc;
+  --accent:#2f5d8a; --accent-soft:#e8eff6; --pub:#1f7a4d; --pub-soft:#e3f3ea; --code:#f0efea; --done:#1f6e45; --done-soft:#e1f1e7; --prog:#8a5a00; --prog-soft:#fbefd5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151614; --surface:#1e1f1d; --text:#e9e8e3; --muted:#a3a29b; --line:#33342f;
+    --accent:#8db6df; --accent-soft:#22303d; --pub:#6fcf9b; --pub-soft:#1d3327; --code:#2a2b28; --done:#7fd3a3; --done-soft:#1c3226; --prog:#f0c26a; --prog-soft:#3a2f17;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151614; --surface:#1e1f1d; --text:#e9e8e3; --muted:#a3a29b; --line:#33342f;
+  --accent:#8db6df; --accent-soft:#22303d; --pub:#6fcf9b; --pub-soft:#1d3327; --code:#2a2b28; --done:#7fd3a3; --done-soft:#1c3226; --prog:#f0c26a; --prog-soft:#3a2f17;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.88em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 16px 64px;display:grid;
+  grid-template-columns:250px minmax(0,1fr);gap:40px}
+header{grid-column:1/-1}
+h1{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0}
+nav{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;
+  font-size:14px}
+nav h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  margin:18px 0 6px}
+nav h2:first-child{margin-top:0}
+nav ol{list-style:none;margin:0;padding:0}
+nav li a{display:block;padding:3px 8px;border-radius:5px;text-decoration:none;color:var(--text)}
+nav li a:hover{background:var(--accent-soft)}
+.group-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.group-title:first-of-type{margin-top:0}
+article{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:20px 22px;margin-bottom:16px}
+article h3{margin:0;font-size:19px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+article h3 a{text-decoration:none;color:var(--text)}
+article h3 a:hover{color:var(--accent)}
+.badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;
+  background:var(--accent-soft);color:var(--accent)}
+.badge.pub{background:var(--pub-soft);color:var(--pub)}
+.meta{color:var(--muted);font-size:13px;margin:4px 0 12px}
+.lede{margin:0 0 12px}
+dl{margin:0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:6px 14px;font-size:14px}
+dt{color:var(--muted);font-weight:600}
+dd{margin:0}
+dd ul{margin:0;padding-left:18px}
+.summary{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:4px 0;margin:0 0 28px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.st{font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.st.done{background:var(--done-soft);color:var(--done)}
+.st.prog{background:var(--prog-soft);color:var(--prog)}
+.st.none{background:var(--code);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:13px;color:var(--muted);align-items:center}
+.top{font-size:13px;display:inline-block;margin-top:12px}
+@media (max-width:820px){
+  .wrap{grid-template-columns:1fr;gap:20px}
+  nav{position:static;max-height:none}
+  dl{grid-template-columns:1fr;gap:2px}
+  dt{margin-top:6px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header id="top">
+  <h1>Repository index</h1>
+  <p class="sub">All 17 repositories under <code>rgvvvg5mpz-collab</code>: what each one does and what it contains. As of 11 Nov 2026, one is public (clm-nemotron) and 16 are private.</p>
+  <div class="legend"><span class="st done">Completed</span> 13 <span class="st prog">In progress</span> 3 <span class="st none">Not started</span> 1 <span style="flex-basis:100%">Based on each README's own status notes, its GitHub releases and the date it was last pushed.</span></div>
+</header>
+
+<nav aria-label="Index">
+  <h2>Compliance models</h2>
+  <ol>
+    <li><a href="#fiduciary-judge-v01">fiduciary-judge-v01</a></li>
+    <li><a href="#FINRA2210_correspondence">FINRA2210_correspondence</a></li>
+    <li><a href="#RegModels">RegModels</a></li>
+    <li><a href="#complaint-detection">complaint-detection</a></li>
+    <li><a href="#clasp">clasp</a></li>
+    <li><a href="#clm-nemotron">clm-nemotron</a></li>
+  </ol>
+  <h2>Evaluation &amp; knowledge</h2>
+  <ol>
+    <li><a href="#HelpfulnessJudges">HelpfulnessJudges</a></li>
+    <li><a href="#vanguard-advice-graph">vanguard-advice-graph</a></li>
+  </ol>
+  <h2>LLM architecture &amp; tooling</h2>
+  <ol>
+    <li><a href="#VGSelect3A">VGSelect3A</a></li>
+    <li><a href="#language-model-selection">language-model-selection</a></li>
+    <li><a href="#PromptOptimizer">PromptOptimizer</a></li>
+    <li><a href="#orchestrator-scaffold">orchestrator-scaffold</a></li>
+    <li><a href="#slm-foundry">slm-foundry</a></li>
+  </ol>
+  <h2>Strategy &amp; governance</h2>
+  <ol>
+    <li><a href="#AICoE-prospectus">AICoE-prospectus</a></li>
+    <li><a href="#RAIprocess">RAIprocess</a></li>
+  </ol>
+  <h2>Other</h2>
+  <ol>
+    <li><a href="#investment_bot">investment_bot</a></li>
+    <li><a href="#conv-ai">conv-ai</a></li>
+  </ol>
+</nav>
+
+<main>
+<div class="summary">
+<table>
+<thead><tr><th>Repo</th><th>State</th><th>In one line</th></tr></thead>
+<tbody>
+<tr><td><a href="#fiduciary-judge-v01">fiduciary-judge-v01</a></td><td><span class="st prog">In progress</span></td><td>A judge model that checks whether advice-chatbot replies meet Reg BI and Advisers Act duties, plus its dataset and fast pass/fail screens</td></tr>
+<tr><td><a href="#FINRA2210_correspondence">FINRA2210_correspondence</a></td><td><span class="st done">Completed</span></td><td>Phi-4-mini fine-tune for first-pass FINRA 2210 review of communications</td></tr>
+<tr><td><a href="#RegModels">RegModels</a></td><td><span class="st done">Completed</span></td><td>Six rule-specific supervisory models, a screened chatbot and an SME feedback loop</td></tr>
+<tr><td><a href="#complaint-detection">complaint-detection</a></td><td><span class="st done">Completed</span></td><td>Small model that flags FINRA 4530 reportable events in chat</td></tr>
+<tr><td><a href="#clasp">clasp</a></td><td><span class="st done">Completed</span></td><td>Contrastive classifier workbench on CLM-8B, with a regulatory regime screener as its worked example</td></tr>
+<tr><td><a href="#clm-nemotron">clm-nemotron</a></td><td><span class="st done">Completed</span></td><td>Text classification on Nemotron embeddings that you can train in a browser (public)</td></tr>
+<tr><td><a href="#HelpfulnessJudges">HelpfulnessJudges</a></td><td><span class="st prog">In progress</span></td><td>Ten prompt-based LLM judges of chatbot helpfulness, with three ways to deploy them</td></tr>
+<tr><td><a href="#vanguard-advice-graph">vanguard-advice-graph</a></td><td><span class="st done">Completed</span></td><td>Knowledge graph from regulator sources, with grounded retrieval and an SME console</td></tr>
+<tr><td><a href="#VGSelect3A">VGSelect3A</a></td><td><span class="st done">Completed</span></td><td>Recommends an agentic architecture and a model for each role, starting from a repo scan</td></tr>
+<tr><td><a href="#language-model-selection">language-model-selection</a></td><td><span class="st done">Completed</span></td><td>Finds the LLM calls in an app and ranks hosting options by cost, latency and accuracy</td></tr>
+<tr><td><a href="#PromptOptimizer">PromptOptimizer</a></td><td><span class="st done">Completed</span></td><td>Adapts prompts so behaviour stays the same when you switch LLMs</td></tr>
+<tr><td><a href="#orchestrator-scaffold">orchestrator-scaffold</a></td><td><span class="st done">Completed</span></td><td>SLM intent router that an orchestrating LLM calls as a tool</td></tr>
+<tr><td><a href="#slm-foundry">slm-foundry</a></td><td><span class="st done">Completed</span></td><td>Self-hosted platform for SFT, human or AI feedback and RLHF alignment of small models</td></tr>
+<tr><td><a href="#AICoE-prospectus">AICoE-prospectus</a></td><td><span class="st done">Completed</span></td><td>Executive briefs and the 2027 plan for nine AI CoE initiatives</td></tr>
+<tr><td><a href="#RAIprocess">RAIprocess</a></td><td><span class="st done">Completed</span></td><td>Green-Light Map of the AI application lifecycle, with a best-practice review</td></tr>
+<tr><td><a href="#investment_bot">investment_bot</a></td><td><span class="st prog">In progress</span></td><td>Research harness for a "house-money ladder" trading strategy</td></tr>
+<tr><td><a href="#conv-ai">conv-ai</a></td><td><span class="st none">Not started</span></td><td>Empty scaffold (README only)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="group-title">Compliance models</h2>
+
+<article id="fiduciary-judge-v01">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/fiduciary-judge-v01">fiduciary-judge-v01</a><span class="badge">Private</span><span class="st prog">In progress</span></h3>
+  <div class="meta">Python · created 31 Oct 2026 · local copy: this folder (<code>Fiduciary Model</code>) · last push 2 Nov 2026</div>
+  <p class="lede">A small model that acts as a fiduciary judge, or guardrail, for an AI advice chatbot. For each bot reply, given the conversation, the client's profile and the firm's product shelf, it decides whether the reply meets the best-interest or fiduciary standard (Reg BI, or the Advisers Act and IA-5248). It also names the duty that fails, with the rule cite and the evidence, and picks an action: approve, revise, gather information, block or escalate.</p>
+  <p class="lede"><strong>State: In progress.</strong> README says "in design". The v01 dataset is built (about 35k conversations) and the pass/fail screens are trained and released (<code>screens-v01</code>). Next step: train the Phi-4-mini judge, v02.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/fiduciary/</code>: taxonomy (7 duties, 29 categories, 129 subtypes), scenario sampler, schema and checker, chunk writer, source-refresh crawler</li>
+      <li><code>data/</code>: raw regulatory sources, pilot and v01 chunks, agent outputs, and <code>build_v01</code> (about 35k conversations)</li>
+      <li><code>Models/</code>: Phi-4-mini judge, plus Qwen3-0.6B and Ettin-1B pass/fail screens, with an AWS infrastructure comparison</li>
+      <li><code>docs/</code>: TAXONOMY, DATA_PLAN, SOURCES_TO_MINE, exec deck</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>Pass/fail screens: test fail recall 99.3% (Qwen3) and 99.2% (Ettin), out-of-distribution 98.7% and 98.5%</dd>
+    <dt>Builds on</dt>
+    <dd><a href="#FINRA2210_correspondence">FINRA2210_correspondence</a> (recipe) and <a href="#RegModels">RegModels</a> (Reg BI detector)</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="FINRA2210_correspondence">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/FINRA2210_correspondence">FINRA2210_correspondence</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 17 Oct 2026 · release v0.1.0 · last push 18 Oct 2026</div>
+  <p class="lede">A Phi-4-mini (3.8B) LoRA fine-tune that does a first-pass compliance review of broker-dealer communications under FINRA Rule 2210: emails, texts, social posts, web pages, seminar scripts and more. For each message it gives the communication type, whether it complies, each violation with its rule paragraph and the offending words, severity, and the next step for the reviewer.</p>
+  <p class="lede"><strong>State: Completed.</strong> Model and dataset released as v0.1.0. The planned chat top-up hasn't been built.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/finra2210/</code>: taxonomy, scenario sampler, checker, prompts, training, evaluation</li>
+      <li><code>data/</code>: 11,896 in-domain and 5,800 out-of-distribution synthetic labelled communications</li>
+      <li><code>training/</code> (mlx-lm and NVIDIA), <code>evaluation/</code> (confusion-matrix dashboard), <code>results/</code></li>
+      <li><code>retraining/</code>: rule watch, feedback, label audit, SFT, DPO, GRPO, release gate</li>
+      <li><code>MODEL_CARD</code>, <code>Marketing/</code> (13-slide deck, 3-minute video)</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>Compliant/not compliant correct 96.5% on test and 95.3% out of distribution; violation detection F1 0.97 and 0.96</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="RegModels">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/RegModels">RegModels</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 12 Jul 2026 · release v1.0-models · last push 22 Aug 2026</div>
+  <p class="lede">An end-to-end system for regulatory surveillance of client-facing GenAI chat. It has six small, auditable models, one per rule regime, and a reference chatbot that screens every turn through them, with a loop for subject-matter-expert (SME) review.</p>
+  <p class="lede"><strong>State: Completed.</strong> Six models released (<code>v1.0-models</code>). The training data is synthetic, so the models still need checking on real transcripts.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>Reg Comp Data/</code>: synthetic datasets and augmentation scripts for FINRA 2210, Reg BI, FINRA 4530, SEC 17a-3/4, Reg S-P and Reg S-ID</li>
+      <li><code>slm-supervisory-suite/</code>: trains, calibrates and evaluates the six models; whitepaper and deck</li>
+      <li><code>compliance-chatbot/</code>: FastAPI app that drafts a reply, runs it past the panel, then delivers or withholds it, logging to S3</li>
+      <li><code>RLHF_RLAIF_UI/</code>: SME review console, LLM judge, threshold bandit, gated retraining</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>Test macro-F1 0.966–0.995 across the six models, and every regulatory recall floor is met</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="complaint-detection">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/complaint-detection">complaint-detection</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 13 Aug 2026 · release v0.2.0 · last push 2 Sep 2026</div>
+  <p class="lede">Fine-tunes a small model (Gemma 3 4B, then Phi-4-mini) as a binary PASS/FAIL classifier of chat messages. It flags potential FINRA Rule 4530 reportable events: complaints, unauthorized trading, misrepresentation, fraud and similar. The final v2 covers 14 FINRA rules.</p>
+  <p class="lede"><strong>State: Completed.</strong> Final model released as v0.2.0.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>data/</code>, <code>data_v2/</code>, <code>data_v3/</code>: tiered synthetic data generators and splits</li>
+      <li><code>config/</code> (MLX LoRA, CUDA QLoRA), <code>src/</code>, <code>scripts/</code>, <code>deploy/</code> (AWS and vLLM)</li>
+      <li><code>RESULTS_*.md</code> (full, OOD, Phi-4, v2, v3), <code>MODEL_CARD.md</code>, exec one-pager</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>v2 recall 0.97 (misses 15 of 1,000), at about a 23% false-alarm rate on benign chat</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="clasp">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/clasp">clasp</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 6 Oct 2026 · last push 11 Oct 2026</div>
+  <p class="lede">CLASP (Contrastive Labelling And System-1 Prediction) is a workbench for fast text classifiers. They are small contrastive heads (CLM-8B) on a frozen Qwen3-8B encoder. Its browser UI covers the whole loop: data curation with Claude Code, training, chat and flagging, and post-training with a promotion gate. The worked example is a 5- or 7-way securities-regulation regime screener built on RegModels data.</p>
+  <p class="lede"><strong>State: Completed.</strong> Models v1.0 and v1.1 released, along with the demo video.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>app/</code>: FastAPI workbench, training jobs and model registry, Claude Code runner, static UI</li>
+      <li><code>engine/</code>: encoder, embedding store, contrastive head trainer, classifier</li>
+      <li><code>examples/regulatory/</code>, <code>model_validation/</code>, <code>Tests/</code> (dated evaluation runs)</li>
+      <li><code>docs/</code>: architecture, developer guide, methodology; a 9½-minute demo video in the releases</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>Held-out macro-F1 0.983 (5-way) and 0.977 (7-way)</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="clm-nemotron">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/clm-nemotron">clm-nemotron</a><span class="badge pub">Public</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 18 Oct 2026 · fork of Contrastive-LM/CLM · last push 18 Oct 2026</div>
+  <p class="lede">Fast, cheap, private text classification on NVIDIA Nemotron embeddings. A small model on top of a frozen encoder learns your labels from your examples, and you can train it in a browser. It answers yes/no, pick-one and scale questions about a text in tens of milliseconds on a laptop.</p>
+  <p class="lede"><strong>State: Completed.</strong> Models released (<code>models-v1</code>); tests run in CI on every push.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/clm/</code>: <code>clm-serve</code> (API and playground), <code>clm-train</code>, <code>clm-encoder</code>, <code>clm-benchmark</code></li>
+      <li><code>docs/</code> (user guide, training, API), <code>Crew Training/</code> (video, exercises)</li>
+      <li><code>Marketing/</code> (deck, video, frontier benchmark), <code>Model Governance/</code> (model cards, lineage, risks)</li>
+      <li><code>Claude Code/</code>: setup, start and stop scripts; <code>tests/</code> runs in CI</li>
+    </ul></dd>
+    <dt>Results</dt>
+    <dd>88–96% accuracy on support-ticket routing from 300 examples, 33 ms median latency, about $8 per million decisions (demo figures)</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<h2 class="group-title">Evaluation &amp; knowledge</h2>
+
+<article id="HelpfulnessJudges">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/HelpfulnessJudges">HelpfulnessJudges</a><span class="badge">Private</span><span class="st prog">In progress</span></h3>
+  <div class="meta">Python · created 29 Aug 2026 · GitHub Pages site · last push 30 Aug 2026</div>
+  <p class="lede">Ten independent prompt-based LLM judges for a retail-investment chatbot: empathy, emotional intelligence, completeness, actionability, clarity, effort, accommodation and honesty. Each scores 0, 0.5 or 1.0. The repo has three deployment paths and 660 labelled test samples. Status: proposed, not yet validated on real transcripts.</p>
+  <p class="lede"><strong>State: In progress.</strong> README says "Proposed, not validated". The rubrics have never scored a real transcript, and there are no agreement figures yet.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>judges/</code>: the source rubrics; <code>harness/</code>: the reference runner (live, batch, k-sample)</li>
+      <li><code>agentcore-integration/</code>, <code>agentcore-native/</code>, <code>arize-integration/</code>: the three deployment paths</li>
+      <li><code>data/</code> (gold fixtures, test sets), <code>docs/</code> (whitepaper, literature review, validation protocol)</li>
+      <li>Interactive and static HTML readmes, exec one-pager, architecture page</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="vanguard-advice-graph">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/vanguard-advice-graph">vanguard-advice-graph</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 23 Aug 2026 · last push 30 Aug 2026</div>
+  <p class="lede">A knowledge graph, grounded retrieval and an SME test console for retail investment advice, spanning self-directed brokerage and Advice. It has 46 public sources and 6,296 claims, each quote verified verbatim. 94% of the claims trace to a regulator (IRS, SSA, SEC, DOL, eCFR, FINRA).</p>
+  <p class="lede"><strong>State: Completed.</strong> v0.7.0 released, with 81 tests. Still a pre-1.0 version number.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>ontology/</code> (35 node types, 46 edge types), <code>hydration/</code> (source ingestion)</li>
+      <li><code>retrieval/</code>, <code>service/</code>, <code>ui/</code> (SME console)</li>
+      <li><code>eval/</code> (corpus, vectors, results), <code>tests/</code> (81), 11 CI invariants</li>
+      <li>Docker and Compose files, <code>SPEND_RECORD.md</code>, exec one-pager</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<h2 class="group-title">LLM architecture &amp; tooling</h2>
+
+<article id="VGSelect3A">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/VGSelect3A">VGSelect3A</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 7 Sep 2026 · last push 13 Sep 2026</div>
+  <p class="lede">VG Select: 3A (Automated Agentic Architecture) scans a code repository and combines it with a workload profile. It then ranks ten agent topologies using 41 cited rules, estimates their latency and cost, and staffs each role with a model from your catalog. The output is an architecture PDF and a runnable LangGraph skeleton. It also grades existing agents with a report card.</p>
+  <p class="lede"><strong>State: Completed.</strong> v0.4.1 released.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/vgselect3a/</code>: scanner, rules, recommender, estimator, decomposition, model selector, PDF report, scaffold templates</li>
+      <li><code>case_study/</code>: call summarization, robo-advisor, account inquiry</li>
+      <li><code>docs/</code>: executive brief, user, deployment and consumer guides, methodology, model catalog, report card</li>
+      <li><code>openapi/</code>, <code>Dockerfile</code>, <code>tests/</code>, CI workflows</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="language-model-selection">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/language-model-selection">language-model-selection</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 22 Aug 2026 · last push 30 Aug 2026</div>
+  <p class="lede">Point it at an application and it finds every language-model call, works out what each one is for, and ranks the ways to run it against a cost, latency and accuracy objective you set. Options include Anthropic, Gemini, the Bedrock catalogue, hosted open weights and self-hosted GPUs. It also advises whether a job should be a single call, a workflow or agents. You can use it as a service, a UI with sliders, or a CLI.</p>
+  <p class="lede"><strong>State: Completed.</strong> README says "working end to end". The quality and latency figures are still default estimates, not measurements.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/lms/</code>: pure-stdlib engine (<code>scan</code>, <code>recommend</code>, <code>refresh</code>)</li>
+      <li><code>configs/</code>: a catalogue of 34 models, plus measurements to replace the default priors</li>
+      <li><code>static/</code> (UI), <code>examples/sample_app/</code>, <code>.claude/skills/</code></li>
+      <li><code>docs/</code>: exec one-pager, manual, methodology</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="PromptOptimizer">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/PromptOptimizer">PromptOptimizer</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 26 Aug 2026 · local copy: <code>PromptOptimizer 1.0</code> · last push 2 Sep 2026</div>
+  <p class="lede">Middleware that keeps an application's behaviour stable when you switch its LLM from model A to model B (Anthropic, Bedrock, Gemini, OpenAI-compatible). At design time it measures drift with a Behavioral Similarity Index and adapts the prompt until it passes an equivalence gate. At runtime it serves the adapted prompt with a p99 of about 1 µs.</p>
+  <p class="lede"><strong>State: Completed.</strong> v1.0.0 released.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/promptopt/</code>: lint, baseline, candidate generation, BSI scoring, gate, runtime adapter, provider adapters</li>
+      <li><code>configs/promptopt.yaml</code>, <code>examples/</code>, <code>scripts/</code> (embedding setup), <code>tests/</code></li>
+      <li><code>docs/</code>: user manual, methodology, design, router; 1-pager and architecture HTML</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="orchestrator-scaffold">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/orchestrator-scaffold">orchestrator-scaffold</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 31 Aug 2026 · local copy: <code>orchestrator_scaffold</code> · last push 31 Aug 2026</div>
+  <p class="lede">A small-model intent router that an orchestrating LLM calls as a tool. It returns the top-5 intents with calibrated probabilities, a routing recommendation, and the key-value pairs that best resolve the remaining ambiguity. It handles open-set taxonomies, and each retraining run reports which intents overlap.</p>
+  <p class="lede"><strong>State: Completed.</strong> Runs end to end, with 159 tests. Clustering of new intents isn't implemented. No release.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>packages/intent_core/</code>: shared core; <code>variants/</code>: prototype, softmax and Phi routers</li>
+      <li><code>data/</code>, <code>scripts/</code>, <code>deploy/</code> (SageMaker, IAM), <code>docker-compose.yml</code>, <code>Makefile</code></li>
+      <li><code>docs/</code> with ADRs; exec pager, architecture, engineer manual and methodology HTML</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="slm-foundry">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/slm-foundry">slm-foundry</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python · created 22 Aug 2026 · last push 30 Aug 2026</div>
+  <p class="lede">"Bring your data, get a fine-tuned small language model." A self-hosted product: upload data, fine-tune with LoRA, collect preference feedback from people or an AI judge, then align with DPO, PPO, GRPO or GSPO, benchmark, and promote. Workers share a fair-share job queue, so several teams can use one deployment.</p>
+  <p class="lede"><strong>State: Completed.</strong> Runs locally with seeded demo data. No release.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>src/foundry/</code>: API, worker, training, reward model, alignment, registry</li>
+      <li><code>static/</code> (review dashboard), <code>configs/</code>, <code>scripts/</code> (seed, serve)</li>
+      <li><code>docs/</code>: two searchable manuals (<code>docs/index.html</code>)</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<h2 class="group-title">Strategy &amp; governance</h2>
+
+<article id="AICoE-prospectus">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/AICoE-prospectus">AICoE-prospectus</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">HTML · created 7 Sep 2026 · last push 7 Sep 2026</div>
+  <p class="lede">Executive briefs for the nine AI Center of Excellence initiatives (Center for AI and Insights), one page each, plus a 2027 delivery plan, investment asks and a synthesis of the lifecycle: Design → Supply → Build → Run → Measure.</p>
+  <p class="lede"><strong>State: Completed.</strong> The document is finished. The nine initiatives it describes are all still in progress.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>prospectus_brief.html</code>: self-contained source</li>
+      <li><code>prospectus_brief.pdf</code>: 21-page print version, rendered with headless Chrome</li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="RAIprocess">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/RAIprocess">RAIprocess</a><span class="badge">Private</span><span class="st done">Completed</span></h3>
+  <div class="meta">Python / HTML · created 13 Sep 2026 · last push 13 Sep 2026</div>
+  <p class="lede">The Green-Light Map: a people, process and technology map of the AI application lifecycle, with seven stages, one production gate and four sign-off functions (Enterprise Risk, OGC, Divisional Risk, CSOC). It comes with a review against SR 11-7, NIST AI 600-1, ISO 42001, OWASP and FINRA 24-09.</p>
+  <p class="lede"><strong>State: Completed.</strong> The map and its review are both published as HTML and PDF.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>greenlight_map.html</code> / <code>.pdf</code> and <code>gen_map.py</code> (generator; edit its data tables, not the HTML)</li>
+      <li><code>greenlight_map_review.html</code> / <code>.pdf</code> and <code>gen_review.py</code></li>
+    </ul></dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<h2 class="group-title">Other</h2>
+
+<article id="investment_bot">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/investment_bot">investment_bot</a><span class="badge">Private</span><span class="st prog">In progress</span></h3>
+  <div class="meta">Python · created 22 Aug 2026 · last push 22 Aug 2026</div>
+  <p class="lede">A research harness for a "house-money ladder" strategy. You stake X and try to double it within a month, take the stake out on the first double, and then raise the risk using the profits, guided by a four-layer signal model (macro, geopolitics, sector, company). For research and education only; its own docs explain why the later cycles behave like a lottery.</p>
+  <p class="lede"><strong>State: In progress.</strong> The engine runs. Calibrating it needs a market-data source, which hasn't been connected.</p>
+  <dl>
+    <dt>Contains</dt>
+    <dd><ul>
+      <li><code>ibot/</code>: frontier, ladder and Monte Carlo, Kelly sizing, factor scaffold, data adapters, backtest</li>
+      <li><code>scripts/simulate_ladder.py</code>, <code>docs/formulation.md</code></li>
+    </ul></dd>
+    <dt>Status</dt>
+    <dd>The engine runs; calibrating the features still needs a market-data source</dd>
+  </dl>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+
+<article id="conv-ai">
+  <h3><a href="https://github.com/rgvvvg5mpz-collab/conv-ai">conv-ai</a><span class="badge">Private</span><span class="st none">Not started</span></h3>
+  <div class="meta">No code · created 22 Aug 2026 · last push 22 Aug 2026</div>
+  <p class="lede">An empty scaffold. It holds only a README template and a <code>.gitignore</code>; the structure and tooling haven't been decided yet.</p>
+  <p class="lede"><strong>State: Not started.</strong> README template only. The structure and tooling haven't been decided.</p>
+  <a class="top" href="#top">↑ Back to top</a>
+</article>
+</main>
+</div>
+</body>
+</html>
